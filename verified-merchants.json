@@ -1,0 +1,63 @@
+{
+  "version": "2.0.0",
+  "lastUpdated": "2026-03-10",
+  "description": "Verified merchants list for PaymentSkill - only these merchants are allowed for transactions",
+  "merchants": [
+    {
+      "id": "stripe-connect",
+      "name": "Stripe Connect",
+      "domains": ["stripe.com", "connect.stripe.com"],
+      "categories": ["payments", "finance"],
+      "apiType": "Platform API",
+      "verified": true,
+      "riskLevel": "low",
+      "canReceivePayments": true,
+      "apiCapabilities": ["create_charges", "create_transfers", "create_payouts", "create_connected_accounts"]
+    },
+    {
+      "id": "airwallex",
+      "name": "Airwallex",
+      "domains": ["airwallex.com", "api.airwallex.com"],
+      "categories": ["payments", "finance"],
+      "apiType": "Connected accounts API",
+      "verified": true,
+      "riskLevel": "low",
+      "canReceivePayments": true,
+      "apiCapabilities": ["create_payments", "create_payouts", "create_connected_accounts"]
+    },
+    {
+      "id": "digitalocean",
+      "name": "DigitalOcean",
+      "domains": ["digitalocean.com", "api.digitalocean.com"],
+      "categories": ["cloud", "infrastructure", "hosting"],
+      "apiType": "Team API",
+      "verified": true,
+      "riskLevel": "low",
+      "canReceivePayments": false,
+      "apiCapabilities": ["create_teams", "manage_droplets", "manage_databases"]
+    },
+    {
+      "id": "clickclack-market",
+      "name": "ClickClack Market",
+      "domains": ["clickclack.market"],
+      "categories": ["marketplace", "shopping"],
+      "verified": true,
+      "riskLevel": "low",
+      "canReceivePayments": true,
+      "apiCapabilities": ["custom_api"]
+    }
+  ],
+  "blockedCategories": [
+    "gambling",
+    "adult",
+    "drugs",
+    "weapons",
+    "tobacco"
+  ],
+  "verificationRules": {
+    "requireDomainMatch": true,
+    "allowSubdomains": true,
+    "caseSensitive": false,
+    "strictMode": true
+  }
+}

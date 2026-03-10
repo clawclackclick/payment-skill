@@ -274,6 +274,25 @@ payment-skill server stop
 payment-skill server status
 ```
 
+## Verified Merchants
+
+Payment-skill only allows transactions to pre-approved merchants. The list is stored in `verified-merchants.json`:
+
+**Current Verified Merchants:**
+1. **Stripe Connect** - Payment processor (can receive payments)
+2. **Airwallex** - Payment processor (can receive payments)
+3. **DigitalOcean** - Cloud hosting (separate team billing)
+4. **ClickClack Market** - Your marketplace (can receive payments)
+
+**Blocked Categories:**
+- gambling
+- adult
+- drugs
+- weapons
+- tobacco
+
+The app will reject any transaction to merchants not on this list.
+
 ## Configuration
 
 Configuration is stored in `~/.payment-skill/config.json`:
