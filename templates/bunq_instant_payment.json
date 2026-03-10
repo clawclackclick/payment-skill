@@ -1,0 +1,36 @@
+{
+  "templateId": "bunq_instant_payment",
+  "merchant": "bunq.com",
+  "version": "1.0.0",
+  "description": "Instant Bunq payment to IBAN",
+  "prerequisites": {
+    "apiKey": "required",
+    "webhookEndpoint": "optional"
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "create_payment",
+      "command": "bunq.createPayment",
+      "params": {
+        "userId": "{{userId}}",
+        "accountId": "{{accountId}}",
+        "amount": "{{amount}}",
+        "currency": "{{currency}}",
+        "counterpartyIban": "{{recipientIban}}",
+        "counterpartyName": "{{recipientName}}",
+        "description": "{{description}}"
+      },
+      "output": {
+        "paymentId": "id",
+        "status": "status"
+      }
+    }
+  ],
+  "errorHandling": {
+    "retryOn": [
+      "network_error"
+    ],
+    "maxRetries": 2
+  }
+}

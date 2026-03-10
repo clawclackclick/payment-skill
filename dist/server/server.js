@@ -58,6 +58,20 @@ class PaymentSkillServer {
             };
             res.json(safeConfig);
         });
+        // Save provider API key
+        this.app.post('/api/providers', (req, res) => {
+            const { name, apiKey, environment = 'production' } = req.body;
+            if (!name || !apiKey) {
+                res.status(400).json({ success: false, message: 'Provider name and API key required' });
+                return;
+            }
+            config_1.configManager.setProvider(name, {
+                name,
+                apiKey,
+                environment
+            });
+            res.json({ success: true, message: `${name} API key saved` });
+        });
         // Get transactions
         this.app.get('/api/transactions', (req, res) => {
             const transactions = transaction_1.transactionManager.getTransactions();

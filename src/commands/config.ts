@@ -84,6 +84,44 @@ configCommands
         console.log(`  - ${d}`);
       });
     }
+    
+    // Show cumulative budgets
+    if (config.advancedLimits?.cumulativeBudgets?.length > 0) {
+      console.log(chalk.blue('\nCumulative Budgets:'));
+      config.advancedLimits.cumulativeBudgets.forEach((budget: any) => {
+        console.log(`  - ${budget.amount} ${budget.currency} (${budget.period})`);
+      });
+    }
+    
+    // Show geography controls
+    if (config.advancedLimits?.geographyControls) {
+      console.log(chalk.blue('\nGeography Controls:'));
+      console.log(`  Enabled: ${config.advancedLimits.geographyControls.enabled}`);
+      console.log(`  Mode: ${config.advancedLimits.geographyControls.mode}`);
+      if (config.advancedLimits.geographyControls.countries?.length > 0) {
+        console.log('  Countries:');
+        config.advancedLimits.geographyControls.countries.forEach((c: string) => {
+          console.log(`    - ${c}`);
+        });
+      }
+    }
+    
+    // Show category controls
+    if (config.advancedLimits?.categoryControls) {
+      console.log(chalk.blue('\nCategory Controls:'));
+      if (config.advancedLimits.categoryControls.blockedCategories?.length > 0) {
+        console.log('  Blocked Categories:');
+        config.advancedLimits.categoryControls.blockedCategories.forEach((c: string) => {
+          console.log(`    - ${c}`);
+        });
+      }
+      if (config.advancedLimits.categoryControls.allowedCategories?.length > 0) {
+        console.log('  Allowed Categories:');
+        config.advancedLimits.categoryControls.allowedCategories.forEach((c: string) => {
+          console.log(`    - ${c}`);
+        });
+      }
+    }
   });
 
 configCommands

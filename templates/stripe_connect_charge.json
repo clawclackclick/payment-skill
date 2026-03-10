@@ -1,0 +1,56 @@
+{
+  "templateId": "stripe_connect_charge",
+  "merchant": "stripe.com",
+  "version": "1.0.0",
+  "description": "Create charge through Stripe Connect",
+  "prerequisites": {
+    "apiKey": "required",
+    "webhookEndpoint": "required"
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "create_payment_intent",
+      "command": "stripe.paymentIntents.create",
+      "params": {
+        "amount": "{{amount}}",
+        "currency": "{{currency}}",
+        "customer": "{{customerId}}",
+        "automatic_payment_methods": {
+          "enabled": true
+        }
+      },
+      "output": {
+        "paymentIntentId": "id",
+        "clientSecret": "client_secret",
+        "status": "status"
+      },
+      "async": true
+    },
+    {
+      "order": 2,
+      "name": "confirm_payment",
+      "command": "stripe.paymentIntents.confirm",
+      "params": {
+        "paymentIntentId": "{{paymentIntentId}}"
+      },
+      "condition": "requires_confirmation",
+      "async": true,
+      "confirmation": {
+        "type": "webhook",
+        "events": [
+          "payment_intent.succeeded",
+          "payment_intent.payment_failed"
+        ],
+        "timeout": 600
+      }
+    }
+  ],
+  "errorHandling": {
+    "retryOn": [
+      "network_error",
+      "idempotency_error"
+    ],
+    "maxRetries": 3
+  }
+}

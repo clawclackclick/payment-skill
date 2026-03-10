@@ -1,0 +1,43 @@
+{
+  "templateId": "bunq_payment_request",
+  "merchant": "bunq.com",
+  "version": "1.0.0",
+  "description": "Request payment from someone via Bunq",
+  "prerequisites": {
+    "apiKey": "required"
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "create_request",
+      "command": "bunq.createRequestInquiry",
+      "params": {
+        "userId": "{{userId}}",
+        "accountId": "{{accountId}}",
+        "amount": "{{amount}}",
+        "currency": "{{currency}}",
+        "counterpartyAlias": {
+          "type": "{{recipientType}}",
+          "value": "{{recipientValue}}"
+        },
+        "description": "{{description}}"
+      },
+      "output": {
+        "requestId": "id",
+        "status": "status"
+      },
+      "async": true,
+      "confirmation": {
+        "type": "poll",
+        "timeout": 86400,
+        "pollInterval": 60
+      }
+    }
+  ],
+  "errorHandling": {
+    "retryOn": [
+      "network_error"
+    ],
+    "maxRetries": 3
+  }
+}

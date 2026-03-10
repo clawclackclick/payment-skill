@@ -1,0 +1,70 @@
+{
+  "templateId": "wise_standard_transfer",
+  "merchant": "wise.com",
+  "version": "1.0.0",
+  "description": "Standard Wise transfer flow with PSD2 confirmation",
+  "prerequisites": {
+    "apiKey": "required",
+    "webhookEndpoint": "recommended"
+  },
+  "steps": [
+    {
+      "order": 1,
+      "name": "create_quote",
+      "command": "wise.createQuote",
+      "params": {
+        "profileId": "{{profileId}}",
+        "sourceCurrency": "{{sourceCurrency}}",
+        "targetCurrency": "{{targetCurrency}}",
+        "sourceAmount": "{{amount}}"
+      },
+      "output": {
+        "quoteId": "id",
+        "rate": "rate",
+        "fee": "fee"
+      }
+    },
+    {
+      "order": 2,
+      "name": "create_transfer",
+      "command": "wise.createTransfer",
+      "params": {
+        "profileId": "{{profileId}}",
+        "quoteId": "{{quoteId}}",
+        "targetAccountId": "{{recipientId}}",
+        "reference": "{{reference}}"
+      },
+      "output": {
+        "transferId": "id",
+        "status": "status"
+      },
+      "async": true
+    },
+    {
+      "order": 3,
+      "name": "fund_transfer",
+      "command": "wise.fundTransfer",
+      "params": {
+        "profileId": "{{profileId}}",
+        "transferId": "{{transferId}}"
+      },
+      "async": true,
+      "confirmation": {
+        "type": "webhook",
+        "events": [
+          "transfer.completed",
+          "transfer.failed"
+        ],
+        "timeout": 300
+      }
+    }
+  ],
+  "errorHandling": {
+    "retryOn": [
+      "network_error",
+      "rate_limit"
+    ],
+    "maxRetries": 3,
+    "fallback": "cancel_transfer"
+  }
+}
