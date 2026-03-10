@@ -30,9 +30,21 @@ export declare class ConfigManager {
     removePendingTransaction(transactionId: string): void;
     getConfig(): any;
     setConfig(key: string, value: any): void;
-    getBlockedCategories(): string[];
+    getCumulativeBudgets(): any[];
+    addCumulativeBudget(budget: any): void;
+    removeCumulativeBudget(index: number): void;
+    getDomainControls(): any;
+    setDomainControls(controls: any): void;
+    addDomain(domain: string): void;
+    removeDomain(domain: string): void;
+    getGeographyControls(): any;
+    setGeographyControls(controls: any): void;
+    getCategoryControls(): any;
+    setCategoryControls(controls: any): void;
     addBlockedCategory(category: string): void;
     removeBlockedCategory(category: string): void;
+    addAllowedCategory(category: string): void;
+    removeAllowedCategory(category: string): void;
     getWebhookUrl(): string | null;
     setWebhookUrl(url: string): void;
 }

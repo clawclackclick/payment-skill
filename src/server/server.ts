@@ -84,12 +84,122 @@ export class PaymentSkillServer {
       res.json({ success: true, message: 'Emergency stop deactivated' });
     });
 
-    // Get limits
+    // Get all limits and controls
     this.app.get('/api/limits', (req, res) => {
       res.json({
         limits: configManager.getLimits(),
-        timeWindow: configManager.getTimeWindow()
+        timeWindow: configManager.getTimeWindow(),
+        cumulativeBudgets: configManager.getCumulativeBudgets(),
+        domainControls: configManager.getDomainControls(),
+        geographyControls: configManager.getGeographyControls(),
+        categoryControls: configManager.getCategoryControls()
       });
+    });
+
+    // Update basic limits
+    this.app.post('/api/limits', (req, res) => {
+      const { perTransaction, daily, weekly, monthly, maxTransactionsPerHour } = req.body;
+      configManager.setLimits({ perTransaction, daily, weekly, monthly, maxTransactionsPerHour });
+      res.json({ success: true, message: 'Limits updated' });
+    });
+
+    // Cumulative Budgets
+    this.app.get('/api/limits/budgets', (req, res) => {
+      res.json(configManager.getCumulativeBudgets());
+    });
+
+    this.app.post('/api/limits/budgets', (req, res) => {
+      configManager.addCumulativeBudget(req.body);
+      res.json({ success: true, message: 'Budget added' });
+    });
+
+    this.app.delete('/api/limits/budgets/:index', (req, res) => {
+      configManager.removeCumulativeBudget(parseInt(req.params.index));
+      res.json({ success: true, message: 'Budget removed' });
+    });
+
+    // Domain Controls
+    this.app.get('/api/limits/domains', (req, res) => {
+      res.json(configManager.getDomainControls());
+    });
+
+    this.app.post('/api/limits/domains', (req, res) => {
+      const { mode, domain } = req.body;
+      if (mode) {
+        const controls = configManager.getDomainControls();
+        controls.mode = mode;
+        configManager.setDomainControls(controls);
+      }
+      if (domain) {
+        configManager.addDomain(domain);
+      }
+      res.json({ success: true, message: 'Domain controls updated' });
+    });
+
+    this.app.delete('/api/limits/domains/:domain', (req, res) => {
+      configManager.removeDomain(req.params.domain);
+      res.json({ success: true, message: 'Domain removed' });
+    });
+
+    // Time Window
+    this.app.get('/api/limits/time-window', (req, res) => {
+      res.json(configManager.getTimeWindow());
+    });
+
+    this.app.post('/api/limits/time-window', (req, res) => {
+      configManager.setTimeWindow(req.body);
+      res.json({ success: true, message: 'Time window updated' });
+    });
+
+    // Geography Controls
+    this.app.get('/api/limits/geo', (req, res) => {
+      res.json(configManager.getGeographyControls());
+    });
+
+    this.app.post('/api/limits/geo', (req, res) => {
+      const { enabled, mode, country } = req.body;
+      const controls = configManager.getGeographyControls();
+      if (enabled !== undefined) controls.enabled = enabled;
+      if (mode) controls.mode = mode;
+      if (country) {
+        if (!controls.countries.includes(country)) {
+          controls.countries.push(country);
+        }
+      }
+      configManager.setGeographyControls(controls);
+      res.json({ success: true, message: 'Geography controls updated' });
+    });
+
+    this.app.delete('/api/limits/geo/:country', (req, res) => {
+      const controls = configManager.getGeographyControls();
+      controls.countries = controls.countries.filter((c: string) => c !== req.params.country);
+      configManager.setGeographyControls(controls);
+      res.json({ success: true, message: 'Country removed' });
+    });
+
+    // Category Controls
+    this.app.get('/api/limits/categories', (req, res) => {
+      res.json(configManager.getCategoryControls());
+    });
+
+    this.app.post('/api/limits/categories/block', (req, res) => {
+      configManager.addBlockedCategory(req.body.category);
+      res.json({ success: true, message: 'Category blocked' });
+    });
+
+    this.app.post('/api/limits/categories/unblock', (req, res) => {
+      configManager.removeBlockedCategory(req.body.category);
+      res.json({ success: true, message: 'Category unblocked' });
+    });
+
+    this.app.post('/api/limits/categories/allow', (req, res) => {
+      configManager.addAllowedCategory(req.body.category);
+      res.json({ success: true, message: 'Category added to allowed list' });
+    });
+
+    this.app.post('/api/limits/categories/disallow', (req, res) => {
+      configManager.removeAllowedCategory(req.body.category);
+      res.json({ success: true, message: 'Category removed from allowed list' });
     });
 
     // Webhook endpoints

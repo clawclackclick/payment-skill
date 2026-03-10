@@ -106,6 +106,32 @@ export interface TimeWindowConfig {
     timezone: string;
     blockedDays?: string[];
 }
+export interface CumulativeBudget {
+    enabled: boolean;
+    amount: number;
+    period: 'daily' | 'weekly' | 'monthly';
+    resetDay?: number;
+    resetDayOfWeek?: number;
+}
+export interface DomainControl {
+    mode: 'whitelist' | 'blacklist';
+    domains: string[];
+}
+export interface GeographyControl {
+    enabled: boolean;
+    mode: 'allow' | 'block';
+    countries: string[];
+}
+export interface CategoryControl {
+    blockedCategories: string[];
+    allowedCategories?: string[];
+}
+export interface AdvancedLimits {
+    cumulativeBudgets: CumulativeBudget[];
+    domainControls: DomainControl;
+    geographyControls: GeographyControl;
+    categoryControls: CategoryControl;
+}
 export interface EmergencyStopState {
     active: boolean;
     activatedAt?: Date;

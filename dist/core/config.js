@@ -94,7 +94,22 @@ class ConfigManager {
                 end: '22:00',
                 timezone: 'Europe/Bucharest'
             },
-            blockedCategories: ['gambling', 'adult', 'drugs', 'weapons', 'tobacco'],
+            advancedLimits: {
+                cumulativeBudgets: [],
+                domainControls: {
+                    mode: 'blacklist',
+                    domains: []
+                },
+                geographyControls: {
+                    enabled: false,
+                    mode: 'allow',
+                    countries: []
+                },
+                categoryControls: {
+                    blockedCategories: ['gambling', 'adult', 'drugs', 'weapons', 'tobacco'],
+                    allowedCategories: []
+                }
+            },
             verifiedMerchantsOnly: true,
             webhookUrl: null
         };
@@ -172,20 +187,103 @@ class ConfigManager {
         this.config[key] = value;
         this.saveConfig();
     }
-    // Blocked Categories
-    getBlockedCategories() {
-        return this.config.blockedCategories;
+    // Advanced Limits - Cumulative Budgets
+    getCumulativeBudgets() {
+        return this.config.advancedLimits?.cumulativeBudgets || [];
+    }
+    addCumulativeBudget(budget) {
+        if (!this.config.advancedLimits) {
+            this.config.advancedLimits = this.getDefaultConfig().advancedLimits;
+        }
+        this.config.advancedLimits.cumulativeBudgets.push(budget);
+        this.saveConfig();
+    }
+    removeCumulativeBudget(index) {
+        if (this.config.advancedLimits?.cumulativeBudgets) {
+            this.config.advancedLimits.cumulativeBudgets.splice(index, 1);
+            this.saveConfig();
+        }
+    }
+    // Advanced Limits - Domain Controls
+    getDomainControls() {
+        return this.config.advancedLimits?.domainControls || { mode: 'blacklist', domains: [] };
+    }
+    setDomainControls(controls) {
+        if (!this.config.advancedLimits) {
+            this.config.advancedLimits = this.getDefaultConfig().advancedLimits;
+        }
+        this.config.advancedLimits.domainControls = controls;
+        this.saveConfig();
+    }
+    addDomain(domain) {
+        if (!this.config.advancedLimits) {
+            this.config.advancedLimits = this.getDefaultConfig().advancedLimits;
+        }
+        if (!this.config.advancedLimits.domainControls.domains.includes(domain)) {
+            this.config.advancedLimits.domainControls.domains.push(domain);
+            this.saveConfig();
+        }
+    }
+    removeDomain(domain) {
+        if (this.config.advancedLimits?.domainControls?.domains) {
+            this.config.advancedLimits.domainControls.domains =
+                this.config.advancedLimits.domainControls.domains.filter((d) => d !== domain);
+            this.saveConfig();
+        }
+    }
+    // Advanced Limits - Geography Controls
+    getGeographyControls() {
+        return this.config.advancedLimits?.geographyControls || { enabled: false, mode: 'allow', countries: [] };
+    }
+    setGeographyControls(controls) {
+        if (!this.config.advancedLimits) {
+            this.config.advancedLimits = this.getDefaultConfig().advancedLimits;
+        }
+        this.config.advancedLimits.geographyControls = controls;
+        this.saveConfig();
+    }
+    // Advanced Limits - Category Controls
+    getCategoryControls() {
+        return this.config.advancedLimits?.categoryControls || { blockedCategories: [], allowedCategories: [] };
+    }
+    setCategoryControls(controls) {
+        if (!this.config.advancedLimits) {
+            this.config.advancedLimits = this.getDefaultConfig().advancedLimits;
+        }
+        this.config.advancedLimits.categoryControls = controls;
+        this.saveConfig();
     }
     addBlockedCategory(category) {
-        if (!this.config.blockedCategories.includes(category)) {
-            this.config.blockedCategories.push(category);
+        if (!this.config.advancedLimits) {
+            this.config.advancedLimits = this.getDefaultConfig().advancedLimits;
+        }
+        if (!this.config.advancedLimits.categoryControls.blockedCategories.includes(category)) {
+            this.config.advancedLimits.categoryControls.blockedCategories.push(category);
             this.saveConfig();
         }
     }
     removeBlockedCategory(category) {
-        this.config.blockedCategories =
-            this.config.blockedCategories.filter((c) => c !== category);
-        this.saveConfig();
+        if (this.config.advancedLimits?.categoryControls?.blockedCategories) {
+            this.config.advancedLimits.categoryControls.blockedCategories =
+                this.config.advancedLimits.categoryControls.blockedCategories.filter((c) => c !== category);
+            this.saveConfig();
+        }
+    }
+    addAllowedCategory(category) {
+        if (!this.config.advancedLimits) {
+            this.config.advancedLimits = this.getDefaultConfig().advancedLimits;
+        }
+        if (!this.config.advancedLimits.categoryControls.allowedCategories.includes(category)) {
+            this.config.advancedLimits.categoryControls.allowedCategories.push(category);
+            this.saveConfig();
+        }
+    }
+    removeAllowedCategory(category) {
+        if (this.config.advancedLimits?.categoryControls?.allowedCategories) {
+            this.config.advancedLimits.categoryControls.allowedCategories =
+                this.config.advancedLimits.categoryControls.allowedCategories.filter((c) => c !== category);
+            this.saveConfig();
+        }
     }
     // Webhook URL
     getWebhookUrl() {
