@@ -361,6 +361,25 @@ async function loadEmergencyStatus() {
     }
 }
 
+// Save API Key
+async function saveApiKey() {
+    const apiKey = document.getElementById('api-key-input').value.trim();
+    const provider = document.querySelector('.provider-btn.active')?.textContent?.includes('Wise') ? 'wise' : 'bunq';
+    
+    if (!apiKey) {
+        showNotification('Please enter an API key', 'error');
+        return;
+    }
+    
+    try {
+        await apiPost('/api/providers', { name: provider, apiKey });
+        document.getElementById('api-key-input').value = '';
+        showNotification(`${provider.toUpperCase()} API key saved`);
+    } catch (error) {
+        showNotification('Failed to save API key', 'error');
+    }
+}
+
 // Initialize dashboard
 document.addEventListener('DOMContentLoaded', () => {
     loadLimits();

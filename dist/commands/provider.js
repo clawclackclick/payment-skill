@@ -20,9 +20,14 @@ exports.providerCommands
     .option('-e, --environment <env>', 'Environment', 'production')
     .option('--profile-id <id>', 'Wise profile ID')
     .action((name, options) => {
+    const apiKey = options.apiKey.trim();
+    if (!apiKey) {
+        console.log(chalk_1.default.red('Error: API key cannot be empty'));
+        return;
+    }
     const provider = {
         name,
-        apiKey: options.apiKey,
+        apiKey: apiKey,
         environment: options.environment
     };
     if (options.profileId) {
@@ -30,6 +35,8 @@ exports.providerCommands
     }
     config_1.configManager.setProvider(name, provider);
     console.log(chalk_1.default.green(`✓ Provider '${name}' added`));
+    console.log(chalk_1.default.gray(`  API Key: ${apiKey.substring(0, 10)}...`));
+    console.log(chalk_1.default.gray(`  Environment: ${options.environment}`));
 });
 exports.providerCommands
     .command('list')

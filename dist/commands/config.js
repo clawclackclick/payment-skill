@@ -50,7 +50,40 @@ exports.configCommands
     .action(() => {
     const config = config_1.configManager.getConfig();
     console.log(chalk_1.default.blue('Configuration:'));
-    console.log(JSON.stringify(config, null, 2));
+    // Show providers (with masked API keys)
+    if (config.providers && Object.keys(config.providers).length > 0) {
+        console.log(chalk_1.default.blue('\nProviders:'));
+        Object.entries(config.providers).forEach(([name, p]) => {
+            console.log(`  ${name}:`);
+            console.log(`    Environment: ${p.environment}`);
+            console.log(`    API Key: ${p.apiKey ? p.apiKey.substring(0, 10) + '...' : 'not set'}`);
+            if (p.profileId)
+                console.log(`    Profile ID: ${p.profileId}`);
+        });
+    }
+    // Show limits
+    if (config.limits) {
+        console.log(chalk_1.default.blue('\nLimits:'));
+        console.log(`  Per Transaction: ${config.limits.perTransaction}`);
+        console.log(`  Daily: ${config.limits.daily}`);
+        console.log(`  Weekly: ${config.limits.weekly}`);
+        console.log(`  Monthly: ${config.limits.monthly}`);
+        console.log(`  Max per Hour: ${config.limits.maxTransactionsPerHour}`);
+    }
+    // Show time window
+    if (config.timeWindow) {
+        console.log(chalk_1.default.blue('\nTime Window:'));
+        console.log(`  Enabled: ${config.timeWindow.enabled}`);
+        console.log(`  Hours: ${config.timeWindow.start} - ${config.timeWindow.end}`);
+        console.log(`  Timezone: ${config.timeWindow.timezone}`);
+    }
+    // Show blocked domains
+    if (config.advancedLimits?.domainControls?.domains) {
+        console.log(chalk_1.default.blue('\nBlocked Domains:'));
+        config.advancedLimits.domainControls.domains.forEach((d) => {
+            console.log(`  - ${d}`);
+        });
+    }
 });
 exports.configCommands
     .command('init')
