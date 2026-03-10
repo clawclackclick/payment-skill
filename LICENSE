@@ -1,0 +1,62 @@
+MIT License
+
+Copyright (c) 2026 kraskoruk
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+ADDITIONAL LIABILITY DISCLAIMER FOR PAYMENT-SKILL:
+
+THE CREATORS AND CONTRIBUTORS OF PAYMENT-SKILL CANNOT BE HELD LIABLE FOR ANY
+FINANCIAL LOSSES, DAMAGES, OR HARM TO USERS OR THIRD PARTIES.
+
+By using this software, you acknowledge and agree that:
+
+1. PAYMENT-SKILL IS PROVIDED "AS IS" WITHOUT ANY WARRANTIES, EXPRESS OR IMPLIED
+2. YOU USE THIS SOFTWARE ENTIRELY AT YOUR OWN RISK
+3. THE AUTHORS ARE NOT RESPONSIBLE FOR:
+   - Lost funds or failed transactions
+   - Unauthorized access to your accounts
+   - API errors or service outages from payment providers
+   - Incorrect transaction amounts or destinations
+   - Any financial losses whatsoever
+
+4. YOU ARE SOLELY RESPONSIBLE FOR:
+   - Securing your API keys and credentials
+   - Verifying all transaction details before execution
+   - Understanding the risks of automated financial transactions
+   - Complying with all applicable laws and regulations
+   - Any taxes, fees, or legal obligations resulting from your use
+
+5. EMERGENCY STOP FEATURE:
+   - While provided as a safety feature, the emergency stop may not prevent
+     all transactions in all circumstances
+   - Network delays, API issues, or other technical problems may prevent
+     immediate cancellation
+
+6. THIRD-PARTY SERVICES:
+   - Payment-skill integrates with third-party services (Wise, Bunq, etc.)
+   - These services have their own terms, conditions, and limitations
+   - The authors are not responsible for third-party service availability
+     or behavior
+
+IF YOU DO NOT AGREE WITH THESE TERMS, DO NOT USE THIS SOFTWARE.
+
+For support, use at your own discretion and risk.

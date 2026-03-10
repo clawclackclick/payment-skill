@@ -486,12 +486,33 @@ payment-skill/
 
 ## License
 
-MIT License - see LICENSE file
+MIT License with Additional Liability Disclaimer - see [LICENSE](LICENSE) file
+
+**IMPORTANT:** By using this software, you agree that:
+- The creators cannot be held liable for any financial losses or damages
+- You use this software entirely at your own risk
+- You are solely responsible for securing your API keys and verifying transactions
 
 ## Support
 
-- GitHub Issues: https://github.com/kraskoruk/payment-skill/issues
-- Documentation: https://github.com/kraskoruk/payment-skill/wiki
+- **GitHub Issues:** https://github.com/kraskoruk/payment-skill/issues (Bug reports, feature requests, questions)
+- **GitHub Discussions:** https://github.com/kraskoruk/payment-skill/discussions (Community Q&A)
+- **Wiki:** https://github.com/kraskoruk/payment-skill/wiki (Community-maintained documentation)
+- **SUPPORT.md:** See [SUPPORT.md](SUPPORT.md) for detailed support information
+
+**Note:** Support is community-driven. The wiki is intentionally empty to encourage community contribution. Be the first to add documentation!
+
+## Disclaimer
+
+⚠️ **USE AT YOUR OWN RISK**
+
+Payment-skill involves real money transactions. The authors are not responsible for:
+- Lost funds or failed transactions
+- Unauthorized access to your accounts
+- API errors from payment providers
+- Any financial losses whatsoever
+
+See LICENSE file for complete disclaimer.
 
 ## Changelog
 
