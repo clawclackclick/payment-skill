@@ -1,0 +1,76 @@
+{
+  "name": "payment-skill",
+  "version": "1.0.0",
+  "description": "Self-hosted payment orchestration app for OpenClaw - pay from your bank account to merchants via API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "payment-skill": "./bin/payment-skill.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "serve": "node dist/server.js",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "payment",
+    "wise",
+    "bunq",
+    "stripe",
+    "airwallex",
+    "api",
+    "cli",
+    "openclaw"
+  ],
+  "author": "kraskoruk",
+  "license": "MIT",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "commander": "^11.1.0",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "winston": "^3.11.0",
+    "dotenv": "^16.3.1",
+    "joi": "^17.11.0",
+    "node-cron": "^3.0.3",
+    "ws": "^8.14.2",
+    "chalk": "^4.1.2",
+    "ora": "^5.4.1",
+    "inquirer": "^8.2.6",
+    "fs-extra": "^11.1.1",
+    "yaml": "^2.3.4",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20.9.0",
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.16",
+    "@types/ws": "^8.5.9",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "typescript": "^5.2.2",
+    "ts-node": "^10.9.1",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8",
+    "ts-jest": "^29.1.1",
+    "eslint": "^8.53.0",
+    "@typescript-eslint/eslint-plugin": "^6.11.0",
+    "@typescript-eslint/parser": "^6.11.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kraskoruk/payment-skill.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kraskoruk/payment-skill/issues"
+  },
+  "homepage": "https://github.com/kraskoruk/payment-skill#readme"
+}
