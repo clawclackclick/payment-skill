@@ -113,11 +113,16 @@ wiseCommands
       const client = new WiseClient(config as any);
       const profileId = options.profile || config.profileId;
       
+      const txnId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+      });
       const transfer = await client.createTransfer(
         profileId,
         options.quote,
         options.recipient,
-        options.reference
+        options.reference,
+        txnId
       );
       
       transactionManager.updateTransactionStatus(tx.id, 'initiated');

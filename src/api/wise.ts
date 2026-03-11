@@ -125,7 +125,13 @@ export class WiseClient {
       body.reference = reference;
     }
 
-    const response = await this.client.post(`/v1/transfers`, body);
+    // Ensure targetAccount is a number
+    const requestBody = {
+      ...body,
+      targetAccount: parseInt(body.targetAccount)
+    };
+    console.log('API DEBUG: Sending body:', JSON.stringify(requestBody));
+    const response = await this.client.post(`/v1/transfers`, requestBody);
     return response.data;
   }
 
