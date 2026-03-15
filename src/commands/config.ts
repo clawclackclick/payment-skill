@@ -14,8 +14,45 @@ export const configCommands = new Command('config')
 configCommands
   .command('get')
   .description('Get configuration value')
-  .argument('<key>', 'Configuration key')
+  .argument('<key>', 'Configuration key (e.g., providers.wise.environment)')
   .action((key) => {
+    // Handle provider-specific keys
+    if (key.startsWith('providers.')) {
+      const parts = key.split('.');
+      const providerName = parts[1];
+      const providerKey = parts[2];
+      
+      const provider = configManager.getProvider(providerName);
+      if (provider && providerKey) {
+        const value = (provider as any)[providerKey];
+        if (value !== undefined) {
+          console.log(JSON.stringify(value, null, 2));
+          return;
+        }
+      }
+      console.log(chalk.yellow(`Key '${key}' not found`));
+      return;
+    }
+    
+    // Handle nested keys
+    if (key.includes('.')) {
+      const parts = key.split('.');
+      const config = configManager.getConfig();
+      let current = config;
+      
+      for (const part of parts) {
+        if (current && typeof current === 'object' && part in current) {
+          current = current[part];
+        } else {
+          console.log(chalk.yellow(`Key '${key}' not found`));
+          return;
+        }
+      }
+      console.log(JSON.stringify(current, null, 2));
+      return;
+    }
+    
+    // Simple key
     const config = configManager.getConfig();
     const value = config[key];
     if (value !== undefined) {
