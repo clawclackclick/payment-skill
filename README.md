@@ -8,7 +8,7 @@ Payment Skill is a Node.js/TypeScript application that enables OpenClaw agents t
 
 ## Features
 
-- **Multi-Provider Support**: Wise, Bunq (extensible to Stripe, Airwallex)
+- **Multi-Provider Support**: Wise, Bunq
 - **CLI Interface**: Complete command-line interface for automation
 - **Web Dashboard**: Browser-based interface for manual operations
 - **Emergency Stop**: Big red button to halt all transactions immediately
