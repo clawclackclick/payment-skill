@@ -289,7 +289,7 @@ export class PaymentSkillServer {
 
 // Start server if run directly
 if (require.main === module) {
-  const port = parseInt(process.env.PORT || '8080');
+  const port = parseInt(process.env.PORT || '18790');
   const server = new PaymentSkillServer(port);
   server.start();
 }
