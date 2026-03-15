@@ -145,6 +145,35 @@ exports.wiseCommands
         process.exit(1);
     }
 });
+// Create recipient
+exports.wiseCommands
+    .command('create-recipient')
+    .description('Create a recipient account')
+    .requiredOption('-n, --name <name>', 'Account holder name')
+    .requiredOption('-c, --currency <currency>', 'Currency (EUR, USD, etc)')
+    .requiredOption('--iban <iban>', 'IBAN number')
+    .option('-p, --profile <id>', 'Profile ID')
+    .action(async (options) => {
+    const spinner = (0, ora_1.default)('Creating recipient...').start();
+    try {
+        const config = config_1.configManager.getProvider('wise');
+        if (!config) {
+            throw new Error('Wise not configured');
+        }
+        const client = new wise_1.WiseClient(config);
+        const profileId = options.profile || config.profileId;
+        const recipient = await client.createRecipient(profileId, options.currency, options.name, { iban: options.iban });
+        spinner.stop();
+        console.log(chalk_1.default.green('✓ Recipient created'));
+        console.log(`  ID: ${recipient.id}`);
+        console.log(`  Name: ${recipient.accountHolderName}`);
+        console.log(`  IBAN: ${recipient.details.iban}`);
+    }
+    catch (error) {
+        spinner.fail(error.message);
+        process.exit(1);
+    }
+});
 // List transfers
 exports.wiseCommands
     .command('list')
