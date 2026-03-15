@@ -255,20 +255,23 @@ class PaymentSkillServer {
             // Process webhook
             res.status(200).send('OK');
         });
-        // Verified Merchants (read-only)
+        // Verified Merchants
         this.app.get('/api/verified-merchants', (req, res) => {
             try {
                 const merchantsPath = path_1.default.join(__dirname, '../../verified-merchants.json');
+                console.log('Looking for verified merchants at:', merchantsPath);
                 if (fs.existsSync(merchantsPath)) {
                     const data = fs.readJsonSync(merchantsPath);
                     res.json(data);
                 }
                 else {
+                    console.log('File not found, returning empty list');
                     res.json({ merchants: [], version: '1.0.0' });
                 }
             }
             catch (error) {
-                res.status(500).json({ error: 'Failed to load verified merchants' });
+                console.error('Error loading verified merchants:', error.message);
+                res.status(500).json({ error: 'Failed to load verified merchants', details: error.message });
             }
         });
         // Dashboard route - serve dashboard.html
