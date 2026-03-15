@@ -31,39 +31,47 @@ configCommands
   .argument('<key>', 'Configuration key (e.g., providers.wise.environment)')
   .argument('<value>', 'Configuration value')
   .action((key, value) => {
-    const setNestedValue = (obj: any, keys: string[], val: any) => {
-      let current = obj;
-      for (let i = 0; i < keys.length - 1; i++) {
-        if (!current[keys[i]]) current[keys[i]] = {};
-        current = current[keys[i]];
-      }
-      current[keys[keys.length - 1]] = val;
-    };
-    
+    // Parse the value (try JSON first, then use as string)
+    let parsedValue: any;
     try {
-      const parsedValue = JSON.parse(value);
-      const config = configManager.getConfig();
-      
-      if (key.includes('.')) {
-        const parts = key.split('.');
-        setNestedValue(config, parts, parsedValue);
-        configManager.setConfig(parts[0], config[parts[0]]);
-      } else {
-        configManager.setConfig(key, parsedValue);
-      }
-      console.log(chalk.green(`✓ Set ${key} = ${value}`));
+      parsedValue = JSON.parse(value);
     } catch {
-      const config = configManager.getConfig();
-      
-      if (key.includes('.')) {
-        const parts = key.split('.');
-        setNestedValue(config, parts, value);
-        configManager.setConfig(parts[0], config[parts[0]]);
-      } else {
-        configManager.setConfig(key, value);
-      }
-      console.log(chalk.green(`✓ Set ${key} = ${value}`));
+      parsedValue = value;
     }
+    
+    // Handle nested keys like providers.wise.environment
+    if (key.startsWith('providers.')) {
+      const parts = key.split('.');
+      const providerName = parts[1];
+      const providerKey = parts[2];
+      
+      const provider = configManager.getProvider(providerName) || { name: providerName };
+      (provider as any)[providerKey] = parsedValue;
+      configManager.setProvider(providerName, provider as any);
+      console.log(chalk.green(`✓ Set ${key} = ${value}`));
+      return;
+    }
+    
+    // Handle other nested keys
+    if (key.includes('.')) {
+      const parts = key.split('.');
+      const config = configManager.getConfig();
+      let current = config;
+      
+      for (let i = 0; i < parts.length - 1; i++) {
+        if (!current[parts[i]]) current[parts[i]] = {};
+        current = current[parts[i]];
+      }
+      current[parts[parts.length - 1]] = parsedValue;
+      
+      configManager.setConfig(parts[0], config[parts[0]]);
+      console.log(chalk.green(`✓ Set ${key} = ${value}`));
+      return;
+    }
+    
+    // Simple key
+    configManager.setConfig(key, parsedValue);
+    console.log(chalk.green(`✓ Set ${key} = ${value}`));
   });
 
 configCommands

@@ -72,7 +72,8 @@
         "prostitution"
       ],
       "allowedCategories": [
-        "crypto"
+        "crypto",
+        "shopping"
       ]
     }
   },

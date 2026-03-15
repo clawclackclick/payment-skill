@@ -34,40 +34,43 @@ exports.configCommands
     .argument('<key>', 'Configuration key (e.g., providers.wise.environment)')
     .argument('<value>', 'Configuration value')
     .action((key, value) => {
-    const setNestedValue = (obj, keys, val) => {
-        let current = obj;
-        for (let i = 0; i < keys.length - 1; i++) {
-            if (!current[keys[i]])
-                current[keys[i]] = {};
-            current = current[keys[i]];
-        }
-        current[keys[keys.length - 1]] = val;
-    };
+    // Parse the value (try JSON first, then use as string)
+    let parsedValue;
     try {
-        const parsedValue = JSON.parse(value);
-        const config = config_1.configManager.getConfig();
-        if (key.includes('.')) {
-            const parts = key.split('.');
-            setNestedValue(config, parts, parsedValue);
-            config_1.configManager.setConfig(parts[0], config[parts[0]]);
-        }
-        else {
-            config_1.configManager.setConfig(key, parsedValue);
-        }
-        console.log(chalk_1.default.green(`✓ Set ${key} = ${value}`));
+        parsedValue = JSON.parse(value);
     }
     catch {
-        const config = config_1.configManager.getConfig();
-        if (key.includes('.')) {
-            const parts = key.split('.');
-            setNestedValue(config, parts, value);
-            config_1.configManager.setConfig(parts[0], config[parts[0]]);
-        }
-        else {
-            config_1.configManager.setConfig(key, value);
-        }
-        console.log(chalk_1.default.green(`✓ Set ${key} = ${value}`));
+        parsedValue = value;
     }
+    // Handle nested keys like providers.wise.environment
+    if (key.startsWith('providers.')) {
+        const parts = key.split('.');
+        const providerName = parts[1];
+        const providerKey = parts[2];
+        const provider = config_1.configManager.getProvider(providerName) || { name: providerName };
+        provider[providerKey] = parsedValue;
+        config_1.configManager.setProvider(providerName, provider);
+        console.log(chalk_1.default.green(`✓ Set ${key} = ${value}`));
+        return;
+    }
+    // Handle other nested keys
+    if (key.includes('.')) {
+        const parts = key.split('.');
+        const config = config_1.configManager.getConfig();
+        let current = config;
+        for (let i = 0; i < parts.length - 1; i++) {
+            if (!current[parts[i]])
+                current[parts[i]] = {};
+            current = current[parts[i]];
+        }
+        current[parts[parts.length - 1]] = parsedValue;
+        config_1.configManager.setConfig(parts[0], config[parts[0]]);
+        console.log(chalk_1.default.green(`✓ Set ${key} = ${value}`));
+        return;
+    }
+    // Simple key
+    config_1.configManager.setConfig(key, parsedValue);
+    console.log(chalk_1.default.green(`✓ Set ${key} = ${value}`));
 });
 exports.configCommands
     .command('list')
