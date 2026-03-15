@@ -530,6 +530,26 @@
                         <div class="clearfix"></div>
                     </div>
                 </div>
+                
+                <!-- Verified Merchants (Read-Only) -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-icon green">✅</div>
+                        <div class="section-title">
+                            <h3>Verified Merchants</h3>
+                            <p>Pre-approved merchants for transactions (read-only)</p>
+                        </div>
+                        <button class="toggle-card-btn" onclick="toggleCard(this)">
+                            <span class="arrow">▼</span>
+                        </button>
+                    </div>
+                    <div class="section-body">
+                        <div id="verified-merchants-list" style="display: flex; flex-direction: column; gap: 8px;">
+                            <!-- Verified merchants will be loaded here -->
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
             </div>
             
             <!-- Monitoring Page -->

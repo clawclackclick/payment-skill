@@ -8,6 +8,7 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import path from 'path';
+import * as fs from 'fs-extra';
 import { configManager } from '../core/config';
 import { transactionManager } from '../core/transaction';
 import { fetchAndSaveWiseProfile } from '../api/wise-profile';
@@ -248,6 +249,21 @@ export class PaymentSkillServer {
       console.log('Bunq webhook received:', req.body);
       // Process webhook
       res.status(200).send('OK');
+    });
+
+    // Verified Merchants (read-only)
+    this.app.get('/api/verified-merchants', (req, res) => {
+      try {
+        const merchantsPath = path.join(__dirname, '../../verified-merchants.json');
+        if (fs.existsSync(merchantsPath)) {
+          const data = fs.readJsonSync(merchantsPath);
+          res.json(data);
+        } else {
+          res.json({ merchants: [], version: '1.0.0' });
+        }
+      } catch (error) {
+        res.status(500).json({ error: 'Failed to load verified merchants' });
+      }
     });
 
     // Dashboard route - serve dashboard.html

@@ -380,10 +380,49 @@ async function saveApiKey() {
     }
 }
 
+// Load Verified Merchants (read-only)
+async function loadVerifiedMerchants() {
+    try {
+        const data = await apiGet('/api/verified-merchants');
+        const container = document.getElementById('verified-merchants-list');
+        if (!container || !data.merchants) return;
+        
+        if (data.merchants.length === 0) {
+            container.innerHTML = '<span style="color: var(--text-secondary); font-size: 10px;">No verified merchants configured</span>';
+            return;
+        }
+        
+        container.innerHTML = data.merchants.map(m => `
+            <div style="display: flex; align-items: center; gap: 10px; padding: 10px; background: var(--bg-primary); border-radius: 6px; border-left: 3px solid ${m.canReceivePayments ? '#22c55e' : '#3b82f6'};">
+                <div style="font-size: 20px;">${m.canReceivePayments ? '💰' : '☁️'}</div>
+                <div style="flex: 1;">
+                    <div style="font-weight: 600; font-size: 12px; color: var(--text-primary);">${m.name}</div>
+                    <div style="font-size: 10px; color: var(--text-secondary);">
+                        ${m.domains.join(', ')} • ${m.categories.join(', ')}
+                    </div>
+                    <div style="font-size: 9px; color: var(--text-muted); margin-top: 2px;">
+                        ${m.apiType} • Risk: ${m.riskLevel}
+                    </div>
+                </div>
+                <div style="text-align: right;">
+                    <span style="background: rgba(34, 197, 94, 0.2); color: #22c55e; padding: 2px 6px; border-radius: 3px; font-size: 9px; font-weight: 600;">✓ Verified</span>
+                </div>
+            </div>
+        `).join('');
+    } catch (error) {
+        console.error('Failed to load verified merchants:', error);
+        const container = document.getElementById('verified-merchants-list');
+        if (container) {
+            container.innerHTML = '<span style="color: var(--text-secondary); font-size: 10px;">Unable to load verified merchants</span>';
+        }
+    }
+}
+
 // Initialize dashboard
 document.addEventListener('DOMContentLoaded', () => {
     loadLimits();
     loadEmergencyStatus();
+    loadVerifiedMerchants();
     
     // Set up emergency button
     const emergencyBtn = document.getElementById('emergency-btn');
