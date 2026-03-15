@@ -15,7 +15,15 @@ import {
   BunqConfig 
 } from '../types';
 
-const CONFIG_DIR = path.join(process.env.HOME || process.env.USERPROFILE || '.', '.payment-skill');
+// Support both old location (~/.payment-skill) and new location (./data)
+const OLD_CONFIG_DIR = path.join(process.env.HOME || process.env.USERPROFILE || '.', '.payment-skill');
+const NEW_CONFIG_DIR = path.join(__dirname, '..', '..', 'data');
+
+// Use new location if it exists and has config, otherwise fall back to old location
+const CONFIG_DIR = fs.existsSync(path.join(NEW_CONFIG_DIR, 'config.json')) 
+  ? NEW_CONFIG_DIR 
+  : (fs.existsSync(OLD_CONFIG_DIR) ? OLD_CONFIG_DIR : NEW_CONFIG_DIR);
+
 const CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
 const EMERGENCY_FILE = path.join(CONFIG_DIR, 'emergency.json');
 

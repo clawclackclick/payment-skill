@@ -9,7 +9,15 @@ import * as path from 'path';
 import { Transaction, TransactionStatus } from '../types';
 import { configManager } from './config';
 
-const DATA_DIR = path.join(process.env.HOME || process.env.USERPROFILE || '.', '.payment-skill');
+// Support both old location (~/.payment-skill) and new location (./data)
+const OLD_DATA_DIR = path.join(process.env.HOME || process.env.USERPROFILE || '.', '.payment-skill');
+const NEW_DATA_DIR = path.join(__dirname, '..', '..', 'data');
+
+// Use new location if it exists and has config, otherwise fall back to old location
+const DATA_DIR = fs.existsSync(path.join(NEW_DATA_DIR, 'config.json'))
+  ? NEW_DATA_DIR
+  : (fs.existsSync(OLD_DATA_DIR) ? OLD_DATA_DIR : NEW_DATA_DIR);
+
 const TRANSACTIONS_FILE = path.join(DATA_DIR, 'transactions.json');
 
 export class TransactionManager {

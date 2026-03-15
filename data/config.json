@@ -1,0 +1,80 @@
+{
+  "version": "1.0.0",
+  "providers": {
+    "wise": {
+      "name": "wise",
+      "apiKey": "53704ee2-f996-4081-9a29-4f094f6744d2",
+      "environment": "production"
+    },
+    "bunq": {
+      "name": "bunq",
+      "apiKey": "live.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1",
+      "environment": "production"
+    }
+  },
+  "limits": {
+    "perTransaction": 2,
+    "daily": 100,
+    "weekly": 300,
+    "monthly": 1000,
+    "maxTransactionsPerHour": 100
+  },
+  "timeWindow": {
+    "enabled": false,
+    "start": "10:00",
+    "end": "22:22",
+    "timezone": "UTC"
+  },
+  "blockedCategories": [
+    "gambling",
+    "adult",
+    "drugs",
+    "weapons",
+    "tobacco"
+  ],
+  "verifiedMerchantsOnly": true,
+  "webhookUrl": null,
+  "advancedLimits": {
+    "cumulativeBudgets": [
+      {
+        "amount": 2,
+        "currency": "EUR",
+        "period": "daily",
+        "enabled": true
+      }
+    ],
+    "domainControls": {
+      "mode": "blacklist",
+      "domains": [
+        "www.domain2.com",
+        "ds",
+        "dsds",
+        "wewew",
+        "ewew",
+        "www.test.com"
+      ]
+    },
+    "geographyControls": {
+      "enabled": false,
+      "mode": "allow",
+      "countries": [
+        "RO",
+        "DE",
+        "LT"
+      ]
+    },
+    "categoryControls": {
+      "blockedCategories": [
+        "gambling",
+        "adult",
+        "drugs",
+        "tobacco",
+        "prostitution"
+      ],
+      "allowedCategories": [
+        "crypto"
+      ]
+    }
+  },
+  "providers.wise.environment": "sandbox"
+}

@@ -1,0 +1,436 @@
+{
+  "tx_1773215650846_24p9k3bpf": {
+    "id": "tx_1773215650846_24p9k3bpf",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T07:54:10.846Z",
+    "updatedAt": "2026-03-11T07:54:10.846Z",
+    "metadata": {
+      "quoteId": "343294a1-f6a1-4d7d-9aa7-617002081c2d",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773215842994_ynxg0m3ah": {
+    "id": "tx_1773215842994_ynxg0m3ah",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T07:57:22.994Z",
+    "updatedAt": "2026-03-11T07:57:22.994Z",
+    "metadata": {
+      "quoteId": "343294a1-f6a1-4d7d-9aa7-617002081c2d",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773215923532_fk85ixyl0": {
+    "id": "tx_1773215923532_fk85ixyl0",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T07:58:43.532Z",
+    "updatedAt": "2026-03-11T07:58:43.532Z",
+    "metadata": {
+      "quoteId": "343294a1-f6a1-4d7d-9aa7-617002081c2d",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773216158902_9n1tigczq": {
+    "id": "tx_1773216158902_9n1tigczq",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T08:02:38.902Z",
+    "updatedAt": "2026-03-11T08:02:38.902Z",
+    "metadata": {
+      "quoteId": "7b894eff-3da3-4164-89cc-8eab3d00133b",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773216172231_3wzgkj2tc": {
+    "id": "tx_1773216172231_3wzgkj2tc",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T08:02:52.231Z",
+    "updatedAt": "2026-03-11T08:02:52.231Z",
+    "metadata": {
+      "quoteId": "7b894eff-3da3-4164-89cc-8eab3d00133b",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773216375241_t3zj0yi08": {
+    "id": "tx_1773216375241_t3zj0yi08",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T08:06:15.241Z",
+    "updatedAt": "2026-03-11T08:06:15.241Z",
+    "metadata": {
+      "quoteId": "NEW_QUOTE_ID_HERE",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773217354658_kbcy6lxbg": {
+    "id": "tx_1773217354658_kbcy6lxbg",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T08:22:34.658Z",
+    "updatedAt": "2026-03-11T08:22:34.658Z",
+    "metadata": {
+      "quoteId": "8de30860-1b80-481d-ba35-0f174c521821",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773217379142_8ho8zvref": {
+    "id": "tx_1773217379142_8ho8zvref",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T08:22:59.142Z",
+    "updatedAt": "2026-03-11T08:22:59.142Z",
+    "metadata": {
+      "quoteId": "8de30860-1b80-481d-ba35-0f174c521821",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773217478216_hz4zb0en7": {
+    "id": "tx_1773217478216_hz4zb0en7",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T08:24:38.216Z",
+    "updatedAt": "2026-03-11T08:24:38.216Z",
+    "metadata": {
+      "quoteId": "f0366b6b-085f-4c6b-bee2-66c9b7bec5cf",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773225864133_zlon2v4bp": {
+    "id": "tx_1773225864133_zlon2v4bp",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T10:44:24.133Z",
+    "updatedAt": "2026-03-11T10:44:24.133Z",
+    "metadata": {
+      "quoteId": "c9761728-62b2-488a-9832-75e937fa23f4",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773226917027_xt18vlt6c": {
+    "id": "tx_1773226917027_xt18vlt6c",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T11:01:57.027Z",
+    "updatedAt": "2026-03-11T11:01:57.027Z",
+    "metadata": {
+      "quoteId": "c9761728-62b2-488a-9832-75e937fa23f4",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773227503797_znpwr6zy0": {
+    "id": "tx_1773227503797_znpwr6zy0",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T11:11:43.797Z",
+    "updatedAt": "2026-03-11T11:11:43.797Z",
+    "metadata": {
+      "quoteId": "9a32d7b4-ae5e-4b96-b91b-b3e2aa30d7cb",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773232162041_ebuqfaq0q": {
+    "id": "tx_1773232162041_ebuqfaq0q",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:29:22.041Z",
+    "updatedAt": "2026-03-11T12:29:22.041Z",
+    "metadata": {
+      "quoteId": "1c8dbf70-cd42-4900-ade2-a7c43de4d673",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773232203188_5u8p30ihb": {
+    "id": "tx_1773232203188_5u8p30ihb",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:30:03.188Z",
+    "updatedAt": "2026-03-11T12:30:03.188Z",
+    "metadata": {
+      "quoteId": "1c8dbf70-cd42-4900-ade2-a7c43de4d673",
+      "recipientId": "702166237"
+    }
+  },
+  "tx_1773232695520_q1gg4fbuk": {
+    "id": "tx_1773232695520_q1gg4fbuk",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:38:15.520Z",
+    "updatedAt": "2026-03-11T12:38:15.520Z",
+    "metadata": {
+      "quoteId": "1c8dbf70-cd42-4900-ade2-a7c43de4d673",
+      "recipientId": "702167237"
+    }
+  },
+  "tx_1773232699586_cloqzxy3u": {
+    "id": "tx_1773232699586_cloqzxy3u",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:38:19.586Z",
+    "updatedAt": "2026-03-11T12:38:19.586Z",
+    "metadata": {
+      "quoteId": "1c8dbf70-cd42-4900-ade2-a7c43de4d673",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773232731257_43bjrih55": {
+    "id": "tx_1773232731257_43bjrih55",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:38:51.257Z",
+    "updatedAt": "2026-03-11T12:38:51.257Z",
+    "metadata": {
+      "quoteId": "1c8dbf70-cd42-4900-ade2-a7c43de4d673",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773232763253_6t6rw3oav": {
+    "id": "tx_1773232763253_6t6rw3oav",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:39:23.253Z",
+    "updatedAt": "2026-03-11T12:39:23.253Z",
+    "metadata": {
+      "quoteId": "8e96708a-76ed-4a0e-b574-04e4cd16e0b5",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773232977782_jfppid1g9": {
+    "id": "tx_1773232977782_jfppid1g9",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:42:57.782Z",
+    "updatedAt": "2026-03-11T12:42:57.782Z",
+    "metadata": {
+      "quoteId": "c5c8a398-70d0-4a40-a5b7-a81e488293d6",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233205121_n6b6dpby1": {
+    "id": "tx_1773233205121_n6b6dpby1",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:46:45.121Z",
+    "updatedAt": "2026-03-11T12:46:45.121Z",
+    "metadata": {
+      "quoteId": "b5ecb971-837c-4c5d-b5f2-b7bb27e78a51",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233232858_l04dremzz": {
+    "id": "tx_1773233232858_l04dremzz",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:47:12.858Z",
+    "updatedAt": "2026-03-11T12:47:12.858Z",
+    "metadata": {
+      "quoteId": "dac464dc-7e5c-48fb-8806-ef915ef2af48",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233326224_3x770rwbl": {
+    "id": "tx_1773233326224_3x770rwbl",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:48:46.224Z",
+    "updatedAt": "2026-03-11T12:48:46.224Z",
+    "metadata": {
+      "quoteId": "419a3a8b-a718-48b6-b5c9-95c617d82e94",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233366276_olrat3zct": {
+    "id": "tx_1773233366276_olrat3zct",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:49:26.276Z",
+    "updatedAt": "2026-03-11T12:49:26.276Z",
+    "metadata": {
+      "quoteId": "419a3a8b-a718-48b6-b5c9-95c617d82e94",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233496308_y1ykaoacr": {
+    "id": "tx_1773233496308_y1ykaoacr",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:51:36.308Z",
+    "updatedAt": "2026-03-11T12:51:36.308Z",
+    "metadata": {
+      "quoteId": "7a6b6109-86d8-4367-b02f-d09845cd7deb",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233651066_h5cmwvyi5": {
+    "id": "tx_1773233651066_h5cmwvyi5",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:54:11.066Z",
+    "updatedAt": "2026-03-11T12:54:11.066Z",
+    "metadata": {
+      "quoteId": "469462e1-54fa-4ecf-85f6-e688cf86c422",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233817987_lzbyhlx44": {
+    "id": "tx_1773233817987_lzbyhlx44",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:56:57.987Z",
+    "updatedAt": "2026-03-11T12:56:57.987Z",
+    "metadata": {
+      "quoteId": "641e6bfc-e310-4b63-a141-6f49374aa953",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773233983114_l2ie91514": {
+    "id": "tx_1773233983114_l2ie91514",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T12:59:43.114Z",
+    "updatedAt": "2026-03-11T12:59:43.114Z",
+    "metadata": {
+      "quoteId": "d24b84f1-a732-4188-9c26-e078b52a0030",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773234055304_rogjkxbkn": {
+    "id": "tx_1773234055304_rogjkxbkn",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T13:00:55.304Z",
+    "updatedAt": "2026-03-11T13:00:55.304Z",
+    "metadata": {
+      "quoteId": "b7f1be47-b633-4f6d-80eb-e4f05ffe9938",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773234253107_8y87g9yxw": {
+    "id": "tx_1773234253107_8y87g9yxw",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T13:04:13.107Z",
+    "updatedAt": "2026-03-11T13:04:13.107Z",
+    "metadata": {
+      "quoteId": "e55250e1-9789-4cfe-8f71-0fa29acfd7f5",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773234421016_2l8bjq83r": {
+    "id": "tx_1773234421016_2l8bjq83r",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "pending",
+    "createdAt": "2026-03-11T13:07:01.016Z",
+    "updatedAt": "2026-03-11T13:07:01.016Z",
+    "metadata": {
+      "quoteId": "6b4d6d72-6524-4110-a3be-56b6bf1d50ce",
+      "recipientId": "702167231"
+    }
+  },
+  "tx_1773234498177_bwf4y2a0r": {
+    "id": "tx_1773234498177_bwf4y2a0r",
+    "provider": "wise",
+    "merchant": "wise-transfer",
+    "amount": 0,
+    "currency": "EUR",
+    "status": "initiated",
+    "createdAt": "2026-03-11T13:08:18.177Z",
+    "updatedAt": "2026-03-11T13:08:19.092Z",
+    "metadata": {
+      "quoteId": "2582e642-a48c-4ff9-8d55-f416c741b50b",
+      "recipientId": "702167231"
+    }
+  }
+}
