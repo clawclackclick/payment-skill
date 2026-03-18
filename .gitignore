@@ -1,0 +1,158 @@
+# ============================================
+# ONLY SOURCE FILES ON GITHUB
+# ============================================
+
+# Ignore everything by default
+*
+
+# ============================================
+# ALLOW SOURCE FILES
+# ============================================
+
+# Source code
+!*.ts
+!*.js
+!*.tsx
+!*.jsx
+!*.json
+!*.md
+
+# Source directories
+!src/
+!src/**
+!bin/
+!bin/**
+!config/
+!config/**
+
+# Configuration files
+!package.json
+!package-lock.json
+!tsconfig.json
+!tsconfig.*.json
+!tailwind.config.*
+!postcss.config.*
+!jest.config.*
+!eslint.config.*
+!.eslintrc.*
+!babel.config.*
+!webpack.config.*
+!rollup.config.*
+!vite.config.*
+!next.config.*
+
+# Documentation
+!README.md
+!LICENSE
+!CHANGELOG.md
+!CONTRIBUTING.md
+!SKILL.md
+
+# Git files (must be present)
+!.gitignore
+!.gitattributes
+!.github/
+!.github/**
+
+# ============================================
+# EXCLUDE EVEN FROM SOURCE
+# ============================================
+
+# Test files (optional - comment out if you want tests)
+*.test.ts
+*.test.js
+*.spec.ts
+*.spec.js
+__tests__/
+__mocks__/
+
+# Coverage reports
+coverage/
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# ============================================
+# NEVER COMMIT THESE
+# ============================================
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+out/
+.next/
+.nuxt/
+.vuepress/dist
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# Package manager
+.yarn/
+.pnp.*
+.yarnrc
+.npmrc
+
+# Optional npm cache
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache
+.cache/
+.parcel-cache/
+
+# Storybook build outputs
+.out/
+.storybook-out/
+
+# Temporary folders
+tmp/
+temp/
